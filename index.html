@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock-paper-scissors</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+    <div class="scoreboard">
+        <h1>Rock, Paper, Scissors</h1>
+        <h1 class='header-p1 header'>
+            Your Score: <span id='player-1-score'>0</span>
+        </h1> 
+        <h1 class="header-p2 header">
+            Comp. Score: <span id='player-2-score'>0</span>
+        </h1>
+        <hr>
+        <h1>choose:</h1>
+    </div>
+    
+    
+    <div class="panel-container">
+        <button id='croc-decision' class='item-decision' value="croc">
+            <img class='the-croc item' id='the-croc' src="/imgs/croc.jpg" value="croc">
+        </button>
+        
+        <button id='paper-decision' class='item-decision' value="paper">
+            <img class='paper item' id='paper' src="/imgs/paper.jpg" value='paper'>
+        </button>
+        
+        <button id='scissors-decision' class='item-decision' value="scissors">
+            <img class='scissors item' id='scissors' src="/imgs/scissors.jpg" value='scissors'>
+        </button>
+        
+    </div>
+    
+    <h1 class='choice-decision'>you chose:
+        <br>
+        <span id='decision'></span>
+    </h1>  
+    
+    <h1 class='computer-decision'>
+        computer chose: <br>
+        <span id='computer-choice'></span>
+    </h1>
+    
+    <h1 class='choice-decision'>
+        outcome: <br>
+        <span id='correct-answer'></span>
+    </h1>
+    
+    
+<script src="/app.js"></script>
+</body>
+</html>
