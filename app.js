@@ -8,20 +8,21 @@ const btnClick = document.querySelectorAll('.item-decision');
 
 let playerOneScore = document.getElementById('player-1-score');
 let playerTwoScore = document.getElementById('player-2-score');
-let temp = document.createElement('temp')
 let userCount = 0;
 let computerCount = 0;
 
 function getComputerChoice() {
     let choices = ['croc', 'paper', 'scissors'];
-    let randomChoice = choices[Math.floor(Math.random() * choices.length.toString())];
+    let randomChoice = choices[Math.floor(Math.random() * choices.length)];
     return randomChoice;
 };
 
 function pointSystem() {
     btnClick.forEach(btnClick => {
     btnClick.addEventListener('click', () => {     
-
+       
+    chosenItem.textContent = btnClick.childNodes[1].nextSibling.parentNode.value;
+    
     const random = getComputerChoice();
     let tempValue = chosenItem.textContent;
     
@@ -45,13 +46,12 @@ function pointSystem() {
                 break;
         };
 
-    chosenItem.textContent = btnClick.childNodes[1].nextSibling.parentNode.value;
-    playerOneScore.textContent = userCount;
-    playerTwoScore.textContent = computerCount;
-    compResult.textContent = random;
-
-        });
+        
+        compResult.textContent = random;
+        playerOneScore.textContent = userCount;
+        playerTwoScore.textContent = computerCount;
     });
+});
 };
 
 pointSystem();
