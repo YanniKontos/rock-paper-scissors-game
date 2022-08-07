@@ -7,13 +7,10 @@
 body {
     width: 100%;
     height: 100vh;
-<<<<<<< HEAD
     background: linear-gradient(to right, #807edf, #A76571);
     color: black;
-=======
     background-color: #111560df;
     color: white;
->>>>>>> eae1797249e6c3999c10adb31271e49279b4d340
     line-height: 1.5;
     font-family: 'Inter', sans-serif;
     font-weight: bolder;

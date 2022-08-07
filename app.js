@@ -13,11 +13,7 @@ let userCount = 0;
 let computerCount = 0;
 
 function getComputerChoice() {
-<<<<<<< HEAD
     let choices = ['Croc', 'Paper', 'Scissors'];
-=======
-    let choices = ['croc', 'paper', 'scissors'];
->>>>>>> eae1797249e6c3999c10adb31271e49279b4d340
     let randomChoice = choices[Math.floor(Math.random() * choices.length)];
     return randomChoice;
 };
