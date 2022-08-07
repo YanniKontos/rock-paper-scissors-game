@@ -6,52 +6,74 @@ const compResult = document.getElementById('computer-choice');
 const correctAnswer = document.getElementById('correct-answer');
 const btnClick = document.querySelectorAll('.item-decision');
 
+
 let playerOneScore = document.getElementById('player-1-score');
 let playerTwoScore = document.getElementById('player-2-score');
-let temp = document.createElement('temp')
 let userCount = 0;
 let computerCount = 0;
 
 function getComputerChoice() {
-    let choices = ['croc', 'paper', 'scissors'];
-    let randomChoice = choices[Math.floor(Math.random() * choices.length.toString())];
+    let choices = ['Croc', 'Paper', 'Scissors'];
+    let randomChoice = choices[Math.floor(Math.random() * choices.length)];
     return randomChoice;
 };
+
+const crocColor = () => {
+    theCroc.style.border = '2.5px solid green';
+    paper.style.border = '2.5px solid red';
+    scissors.style.border = '2.5px solid red';
+}
+
+const paperColor = () => {
+    theCroc.style.border = '2.5px solid red';
+    paper.style.border = '2.5px solid green';
+    scissors.style.border = '2.5px solid red';
+}
+
+const scissorsColor = () => {
+    theCroc.style.border = '2.5px solid red';
+    paper.style.border = '2.5px solid red';
+    scissors.style.border = '2.5px solid green';
+}
 
 function pointSystem() {
     btnClick.forEach(btnClick => {
     btnClick.addEventListener('click', () => {     
-
+       
+    chosenItem.textContent = btnClick.childNodes[1].nextSibling.parentNode.value;
+    
     const random = getComputerChoice();
     let tempValue = chosenItem.textContent;
     
         switch (tempValue + random) {
-            case 'crocscissors':
-            case 'papercroc':
-            case 'scissorspaper':
+            case 'CrocScissors':
+            case 'PaperCroc':
+            case 'ScissorsPaper':
                 correctAnswer.textContent = 'win';
                 userCount++;
+                crocColor();
                 break;
-            case 'crocpaper':
-            case 'paperscissors':
-            case 'scissorscroc':
+            case 'CrocPaper':
+            case 'PaperScissors':
+            case 'ScissorsCroc':
                 correctAnswer.textContent = 'loss';
                 computerCount++;
+                paperColor();
                 break;
-            case 'croccroc':
-            case 'paperpaper':
-            case 'scissorsscissors':
+            case 'CrocCroc':
+            case 'PaperPaper':
+            case 'ScissorsScissors':
                 correctAnswer.textContent = 'draw';
+                scissorsColor();
                 break;
         };
 
-    chosenItem.textContent = btnClick.childNodes[1].nextSibling.parentNode.value;
-    playerOneScore.textContent = userCount;
-    playerTwoScore.textContent = computerCount;
-    compResult.textContent = random;
-
-        });
+        
+        compResult.textContent = random;
+        playerOneScore.textContent = userCount;
+        playerTwoScore.textContent = computerCount;
     });
+});
 };
 
 pointSystem();
