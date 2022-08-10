@@ -22,19 +22,25 @@ const crocColor = () => {
     theCroc.style.border = '2.5px solid green';
     paper.style.border = '2.5px solid red';
     scissors.style.border = '2.5px solid red';
-}
+};
 
 const paperColor = () => {
     theCroc.style.border = '2.5px solid red';
     paper.style.border = '2.5px solid green';
     scissors.style.border = '2.5px solid red';
-}
+};
 
 const scissorsColor = () => {
     theCroc.style.border = '2.5px solid red';
     paper.style.border = '2.5px solid red';
     scissors.style.border = '2.5px solid green';
-}
+};
+
+const drawColors = () => {
+    theCroc.style.border = 'none';
+    paper.style.border = 'none';
+    scissors.style.border = 'none';
+};
 
 function pointSystem() {
     btnClick.forEach(btnClick => {
@@ -47,27 +53,32 @@ function pointSystem() {
     
         switch (tempValue + random) {
             case 'CrocScissors':
+                crocColor();
             case 'PaperCroc':
+                paperColor();
             case 'ScissorsPaper':
+                scissorsColor();
                 correctAnswer.textContent = 'win';
                 userCount++;
-                crocColor();
                 break;
+
             case 'CrocPaper':
+                paperColor();
             case 'PaperScissors':
+                scissorsColor();
             case 'ScissorsCroc':
+                crocColor();
                 correctAnswer.textContent = 'loss';
                 computerCount++;
-                paperColor();
                 break;
+                
             case 'CrocCroc':
             case 'PaperPaper':
             case 'ScissorsScissors':
                 correctAnswer.textContent = 'draw';
-                scissorsColor();
+                drawColors();
                 break;
         };
-
         
         compResult.textContent = random;
         playerOneScore.textContent = userCount;
