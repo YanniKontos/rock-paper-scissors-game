@@ -45,18 +45,24 @@ const drawColors = () => {
 function pointSystem() {
     btnClick.forEach(btnClick => {
     btnClick.addEventListener('click', () => {     
-       
-    chosenItem.textContent = btnClick.childNodes[1].nextSibling.parentNode.value;
+
+        chosenItem.textContent = btnClick.childNodes[1].nextSibling.parentNode.value;
+        const random = getComputerChoice();
+        let tempValue = chosenItem.textContent;
     
-    const random = getComputerChoice();
-    let tempValue = chosenItem.textContent;
     
         switch (tempValue + random) {
             case 'CrocScissors':
                 crocColor();
-            case 'PaperCroc':
+                correctAnswer.textContent = 'win';
+                userCount++;
+                break;
+                case 'PaperCroc':
                 paperColor();
-            case 'ScissorsPaper':
+                correctAnswer.textContent = 'win';
+                userCount++;
+                break;
+                case 'ScissorsPaper':
                 scissorsColor();
                 correctAnswer.textContent = 'win';
                 userCount++;
@@ -64,8 +70,14 @@ function pointSystem() {
 
             case 'CrocPaper':
                 paperColor();
+                correctAnswer.textContent = 'loss';
+                computerCount++;
+                break;
             case 'PaperScissors':
                 scissorsColor();
+                correctAnswer.textContent = 'loss';
+                computerCount++;
+                break;
             case 'ScissorsCroc':
                 crocColor();
                 correctAnswer.textContent = 'loss';
@@ -77,14 +89,15 @@ function pointSystem() {
             case 'ScissorsScissors':
                 correctAnswer.textContent = 'draw';
                 drawColors();
-                break;
-        };
-        
+                break;                
+            };
+
         compResult.textContent = random;
         playerOneScore.textContent = userCount;
         playerTwoScore.textContent = computerCount;
+        
+        });
     });
-});
 };
 
 pointSystem();
